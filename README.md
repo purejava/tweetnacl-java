@@ -2,7 +2,7 @@ TweetNacl in Java: port of [tweetnacl-js](https://github.com/dchest/tweetnacl-js
 ====================================================================
 
 [![Build and deploy releases to GitHub](https://github.com/purejava/tweetnacl-java/workflows/Build%20and%20deploy%20releases%20to%20GitHub/badge.svg)](https://github.com/purejava/tweetnacl-java/actions?query=workflow%3A%22Build+and+deploy+releases+to+GitHub%22)
-[![Maven Central](https://img.shields.io/maven-central/v/org.purejava/tweetnacl-java.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.purejava%22%20AND%20a:%22tweetnacl-java%22)
+[![Maven Central](https://img.shields.io/maven-central/v/org.purejava/tweetnacl-java.svg?label=Maven%20Central)](https://central.sonatype.com/search?q=tweetnacl-java&smo=true&namespace=org.purejava)
 [![License](https://img.shields.io/github/license/purejava/tweetnacl-java.svg)](https://github.com/purejava/tweetnacl-java/blob/master/LICENSE)
 
 ### API/Usage
