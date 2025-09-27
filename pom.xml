@@ -70,11 +70,11 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.14.1</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.3</version>
+				<version>3.5.4</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -107,7 +107,7 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.14.0</version>
+			<version>3.14.1</version>
 			<configuration>
 				<source>17</source>
 				<target>17</target>
@@ -129,7 +129,7 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
-			<version>3.11.3</version>
+			<version>3.12.0</version>
 			<executions>
 				<execution>
 					<id>attach-javadocs</id>
@@ -145,7 +145,7 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-surefire-plugin</artifactId>
-			<version>3.5.3</version>
+			<version>3.5.4</version>
 			<dependencies>
 				<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 				<dependency>
