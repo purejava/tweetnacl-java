@@ -1,17 +1,12 @@
 package com.iwebpp.crypto;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 
-import com.iwebpp.crypto.TweetNaclFast;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public final class TweetNaclFastTest {
+final class TweetNaclFastTest {
 	private static final String TAG = "TweetNaclFastTest";
 
 	/**
@@ -89,16 +84,14 @@ public final class TweetNaclFastTest {
 		byte [] cabFast = pabFast.box(TweetNaclFast.hexDecode(BOX_MESSAGE), theNonce);
 		Log.d(TAG, "cabFast: \n" + TweetNaclFast.hexEncodeToString(cabFast));
 
-		assertEquals("!!! TweetNaclFast Box::box/open failed Kalium compatibility !!!",
-					 BOX_CIPHERTEXT.toUpperCase(),
-					 TweetNaclFast.hexEncodeToString(cabFast));
+		assertEquals(BOX_CIPHERTEXT.toUpperCase(),
+				TweetNaclFast.hexEncodeToString(cabFast), "!!! TweetNaclFast Box::box/open failed Kalium compatibility !!!");
 
-		byte [] mbaFastFast = pbaFast.open(cabFast, theNonce);
-		Log.d(TAG, "mbaFastFast: \n" + TweetNaclFast.hexEncodeToString(mbaFastFast));                 
+		byte[] mbaFastFast = pbaFast.open(cabFast, theNonce);
+		Log.d(TAG, "mbaFastFast: \n" + TweetNaclFast.hexEncodeToString(mbaFastFast));
 
-		assertEquals("!!! TweetNaclFast Box::box/open failed Kalium compatibility !!!",
-					 BOX_MESSAGE.toUpperCase(),
-					 TweetNaclFast.hexEncodeToString(mbaFastFast));
+		assertEquals(BOX_MESSAGE.toUpperCase(),
+				TweetNaclFast.hexEncodeToString(mbaFastFast), "!!! TweetNaclFast Box::box/open failed Kalium compatibility !!!");
 
 	}
 
@@ -157,7 +150,7 @@ public final class TweetNaclFastTest {
 		Log.d(TAG, "mbat: "+mbat);
 		
 		String nm0 = new String(mba, "utf-8");
-		assertEquals("box/open string failed", nm0, m0);
+		assertEquals(nm0, m0, "box/open string failed");
 
 		// cipher B -> A
 		byte [] b0 = new byte[100*1000000];
@@ -169,7 +162,7 @@ public final class TweetNaclFastTest {
 		byte [] mab = pab.open(cba);
 		Log.d(TAG, "big of 100M open@" + System.currentTimeMillis());
 
-		assertArrayEquals("big of 100M box/open binary failed", b0 ,mab);
+		assertArrayEquals(b0 ,mab, "big of 100M box/open binary failed");
 
 	}
 
@@ -240,7 +233,7 @@ public final class TweetNaclFastTest {
 		Log.d(TAG, "mbat: "+mbat);
 		
 		String nm0 = new String(mba, "utf-8");
-		assertEquals("box/open string failed (with nonce)", nm0, m0);
+		assertEquals(nm0, m0, "box/open string failed (with nonce)");
 
 		// cipher B -> A
 		byte [] b0 = new byte[6];
@@ -250,7 +243,7 @@ public final class TweetNaclFastTest {
 		byte [] mab = pab.open(cba, theNonce);
 		Log.d(TAG, "open@" + System.currentTimeMillis());
 
-		assertArrayEquals("box/open binary failed (with nonce)", b0, mab);
+		assertArrayEquals(b0, mab, "box/open binary failed (with nonce)");
 
 	}
 	
@@ -304,7 +297,7 @@ public final class TweetNaclFastTest {
 */
 			
 			String nm0 = new String(mba, "utf-8");
-			assertEquals("secret box/open failed", nm0, m0);
+			assertEquals(nm0, m0, "secret box/open failed");
 		}
 	}
 
@@ -366,7 +359,7 @@ public final class TweetNaclFastTest {
 */
 
 			String nm0 = new String(mba, "utf-8");
-			assertEquals("secret box/open failed (with nonce)", nm0, m0);
+			assertEquals(nm0, m0, "secret box/open failed (with nonce)");
 		}
 	}
 	
@@ -401,9 +394,9 @@ public final class TweetNaclFastTest {
 		byte [] oba = pba.open(sab);
 		Log.d(TAG, "...verify@" + System.currentTimeMillis());
 
-		assertNotNull("verify failed", oba);
+		assertNotNull(oba, "verify failed");
 		String nm0 = new String(oba, "utf-8");
-		assertEquals ("sign failed", nm0, m0);
+		assertEquals (nm0, m0, "sign failed");
 		
 		// keypair C
 		byte [] seed = new byte[TweetNaclFast.Signature.seedLength]; for (int i = 0; i < seed.length; i ++) seed[i] = 0x66;
@@ -436,9 +429,9 @@ public final class TweetNaclFastTest {
 		byte [] occ = pcc.open(scc);
 		Log.d(TAG, "...self-verify@" + System.currentTimeMillis());
 
-		assertNotNull("self-verify failed", occ);
+		assertNotNull(occ, "self-verify failed");
 		nm0 = new String(occ, "utf-8");
-		assertEquals ("self-sign failed", nm0, m0);
+		assertEquals (nm0, m0, "self-sign failed");
 	}
 	
 	/*
@@ -488,7 +481,7 @@ public final class TweetNaclFastTest {
 		boolean result = s2.detached_verify(bytes,  signature);
 		Log.d(TAG, "...verify@" + System.currentTimeMillis());
 
-		assertTrue("verify failed", result);
+		assertTrue(result, "verify failed");
 	}
 	/*
 	 * bench test using tweetnacl.c, tweetnacl.js result
