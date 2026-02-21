@@ -40,7 +40,7 @@
 <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-	<junit.jupiter.version>6.0.2</junit.jupiter.version>
+	<junit.jupiter.version>6.0.3</junit.jupiter.version>
 	<central-publishing.version>0.10.0</central-publishing.version>
 </properties>
 
