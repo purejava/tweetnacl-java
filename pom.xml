@@ -6,7 +6,7 @@
 
 <groupId>org.purejava</groupId>
 <artifactId>tweetnacl-java</artifactId>
-<version>1.1.3</version>
+<version>1.1.4</version>
 <packaging>jar</packaging>
 
 <name>tweetnacl-java</name>
@@ -110,8 +110,8 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.16.0</version>
 			<configuration>
-				<source>17</source>
-				<target>17</target>
+				<source>25</source>
+				<target>25</target>
 			</configuration>
 		</plugin>
 		<plugin>
